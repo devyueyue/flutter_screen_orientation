@@ -17,9 +17,7 @@ dependencies:
 
 最新版本查看地址：
 
-```
 https://pub.dev/packages/flutter_dlna/install
-```
 
 
 初始化插件：
