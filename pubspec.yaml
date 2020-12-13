@@ -1,7 +1,6 @@
 name: flutter_screen_orientation
 description: 实时监测Android/IOS屏幕方向的插件
 version: 0.0.1+1
-author: 515445681@qq.com
 homepage: https://github.com/515445681/flutter_screen_orientation
 
 environment:
