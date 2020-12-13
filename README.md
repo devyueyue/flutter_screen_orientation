@@ -17,7 +17,7 @@ dependencies:
 
 最新版本查看地址：
 
-https://pub.dev/packages/flutter_dlna/install
+https://pub.dev/packages/flutter_screen_orientation/install
 
 
 初始化插件：
