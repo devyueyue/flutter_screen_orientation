@@ -3,21 +3,22 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_screen_orientation/flutter_screen_orientation_interface.dart';
 
-class FlutterScreenOrientationAndroidService extends FlutterScreenOrientationService {
-  MethodChannel _channel =
-      const MethodChannel('flutter_screen_orientation');
+class FlutterScreenOrientationAndroidService
+    extends FlutterScreenOrientationService {
+  MethodChannel _channel = const MethodChannel('flutter_screen_orientation');
   int lastOrientation = -1;
 
   @override
   Future<void> init() async {
     _channel.setMethodCallHandler((MethodCall call) async {
-      if (call.method == "orientationCallback" && orientationCallback != null) {
+      if (call.method == "orientationCallback" &&
+          mOrientationCallback != null) {
         int orientation = int.parse(call.arguments);
         if (lastOrientation == orientation) {
           return;
         }
         lastOrientation = orientation;
-        orientationCallback(orientation);
+        mOrientationCallback(orientation);
       }
     });
     _channel.invokeMethod("init");

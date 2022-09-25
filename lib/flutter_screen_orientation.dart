@@ -6,17 +6,14 @@ import 'package:flutter_screen_orientation/flutter_screen_orientation_interface.
 import 'package:flutter_screen_orientation/flutter_screen_orientation_ios.dart';
 
 class FlutterScreenOrientation {
-  FlutterScreenOrientationService screenOrientationService;
-  static FlutterScreenOrientation self;
+  FlutterScreenOrientationService? screenOrientationService;
+  static FlutterScreenOrientation self = FlutterScreenOrientation();
   static int portraitUp = 1;
   static int portraitDown = 2;
   static int landscapeLeft = 3;
   static int landscapeRight = 4;
 
   static FlutterScreenOrientation instance() {
-    if (self == null) {
-      self = FlutterScreenOrientation();
-    }
     return self;
   }
 
@@ -27,11 +24,11 @@ class FlutterScreenOrientation {
     } else if (Platform.isAndroid) {
       self.screenOrientationService = FlutterScreenOrientationAndroidService();
     }
-    await self.screenOrientationService.init();
+    await self.screenOrientationService!.init();
   }
 
   //方向监听
   void listenerOrientation(Function orientationCallback) async {
-    self.screenOrientationService.setOrientationCallback(orientationCallback);
+    self.screenOrientationService!.setOrientationCallback(orientationCallback);
   }
 }
